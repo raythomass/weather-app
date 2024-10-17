@@ -1,18 +1,23 @@
 import {useState ,useEffect} from 'react'
 import axios from 'axios'
+import FiveDayForecast from './FiveDayForecast'
 // const apiKey = import.meta.env.API_KEY;
-
-// a20a289672fbb48069f510904d9915b7
 
 
 export default function Current() {
     const [location, setLocation] = useState('')
     const [main, setMain] = useState('')
+    const [search, setSearch] = useState('')
+
+    const handleSubmit = async (e) => {
+      e.preventDefault()
+      fetchCityCoords()
+    }
 
     const fetchCityCoords = async () => {
         try {
             //GEOCODING LOCATION NAME TO GET COORDINATES
-            const coords = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=Phoenix&limit=5&appid=${import.meta.env.VITE_API_KEY}&units=imperial`);
+            const coords = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${search}&limit=5&appid=${import.meta.env.VITE_API_KEY}&units=imperial`);
             console.log(coords.data)
 
             //USING LAT AND LON TO GET CITY WEATHER DATA
@@ -20,6 +25,7 @@ export default function Current() {
             console.log(response.data)
             setLocation(response.data)
             setMain(response.data.main)
+            console.log(search)
           } catch (error) {
             console.error(error);
           }
@@ -32,8 +38,16 @@ export default function Current() {
 
   return (
     <div>
+        <form onSubmit={handleSubmit}>
+          <input
+            type='text'
+            onChange={(e) => setSearch(e.target.value)}
+            value={search}
+          />
+        </form>
         <p>{location.name}</p>
         <p>{main.temp}</p>
+        {/* <FiveDayForecast key={search} search={search}/> */}
     </div>
   )
 }
