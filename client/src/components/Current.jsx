@@ -3,8 +3,6 @@ import axios from 'axios'
 import FiveDayForecast from './FiveDayForecast'
 // const apiKey = import.meta.env.API_KEY;
 
-// a20a289672fbb48069f510904d9915b7
-
 
 export default function Current() {
     const [location, setLocation] = useState('')
