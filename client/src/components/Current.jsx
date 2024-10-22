@@ -20,10 +20,6 @@ export default function Current() {
 
     const fetchCityCoords = async () => {
         try {
-            //GEOCODING LOCATION NAME TO GET COORDINATES
-            // const coords = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${search}&limit=5&appid=${import.meta.env.VITE_API_KEY}&units=imperial`);
-            // console.log(coords.data)
-            // setLocation(coords.data[0])
             const response = await axios.get(`http://api.weatherapi.com/v1/forecast.json?key=${import.meta.env.VITE_WEATHER_API}&q=${search}&days=3&aqi=no&alerts=no`)
             console.log(response.data)
             setCurrent(response.data.current)

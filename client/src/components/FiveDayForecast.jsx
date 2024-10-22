@@ -3,25 +3,29 @@ import axios from "axios";
 
 const FiveDayForecast = ({current, condition, forecast1, forecast2, forecast3, location}) => {
 
-    // const fiveDayForecast = async () => {
-    //     try {
-    //     } catch (error) {
-    //     }
-    // }
-
-    // useEffect(() => {
-    //     fiveDayForecast()
-    // },[])
-
     return (
-        <div>
-            <p>Three Day Forecast</p>
-            <p>{location.name}</p>
-            <p>{condition.text}</p>
-            <p>{current.cloud}</p>
-            <p>{forecast1.maxtemp_f}</p>
-            <p>{forecast2.maxtemp_f}</p>
-            <p>{forecast3.maxtemp_f}</p>
+        <div className="three-day-forecast">
+            <div className="forecast-day">
+                <p>Day 1</p>
+                <div className="forecast-day-details">
+                    <p>{forecast1.mintemp_f}</p>
+                    <p>{forecast1.maxtemp_f}</p>
+                </div>
+            </div>
+            <div className="forecast-day">
+                <p>Day 2</p>
+                <div className="forecast-day-details">
+                <p>{forecast2.mintemp_f}</p>
+                <p>{forecast2.maxtemp_f}</p>
+                </div>
+            </div>
+            <div className="forecast-day">
+                <p>Day 3</p>
+                <div className="forecast-day-details">
+                <p>{forecast3.mintemp_f}</p>
+                <p>{forecast3.maxtemp_f}</p>
+                </div>
+            </div>
         </div>
     )
 }
