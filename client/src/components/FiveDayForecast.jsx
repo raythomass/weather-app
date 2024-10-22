@@ -1,25 +1,27 @@
 import { useEffect } from "react";
 import axios from "axios";
 
-const FiveDayForecast = ({search}) => {
+const FiveDayForecast = ({current, condition, forecast1, forecast2, forecast3, location}) => {
 
-    const fiveDayForecast = async () => {
-        //GEOCODING LOCATION NAME TO GET COORDINATES
-        const coords = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${search}&limit=5&appid=${import.meta.env.VITE_API_KEY}&units=imperial`);
-        console.log(coords.data)
+    // const fiveDayForecast = async () => {
+    //     try {
+    //     } catch (error) {
+    //     }
+    // }
 
-        //USING LAT AND LON TO GET CITY WEATHER DATA
-        const response = `api.openweathermap.org/data/2.5/forecast?lat=${coords.data[0].lat}&lon=${coords.data[0].lon}&appid=${import.meta.env.VITE_API_KEY}`
-        console.log(response.data)
-    }
-
-    useEffect(() => {
-        fiveDayForecast()
-    },[])
+    // useEffect(() => {
+    //     fiveDayForecast()
+    // },[])
 
     return (
         <div>
-            <p>Five Day Forecast</p>
+            <p>Three Day Forecast</p>
+            <p>{location.name}</p>
+            <p>{condition.text}</p>
+            <p>{current.cloud}</p>
+            <p>{forecast1.maxtemp_f}</p>
+            <p>{forecast2.maxtemp_f}</p>
+            <p>{forecast3.maxtemp_f}</p>
         </div>
     )
 }

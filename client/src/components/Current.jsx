@@ -6,7 +6,11 @@ import FiveDayForecast from './FiveDayForecast'
 
 export default function Current() {
     const [location, setLocation] = useState('')
-    const [main, setMain] = useState('')
+    const [forecast1, setForecast1] = useState('')
+    const [forecast2, setForecast2] = useState('')
+    const [forecast3, setForecast3] = useState('')
+    const [current, setCurrent] = useState('')
+    const [condition, setCondition] = useState('')
     const [search, setSearch] = useState('')
 
     const handleSubmit = async (e) => {
@@ -17,15 +21,18 @@ export default function Current() {
     const fetchCityCoords = async () => {
         try {
             //GEOCODING LOCATION NAME TO GET COORDINATES
-            const coords = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${search}&limit=5&appid=${import.meta.env.VITE_API_KEY}&units=imperial`);
-            console.log(coords.data)
-
-            //USING LAT AND LON TO GET CITY WEATHER DATA
-            const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${coords.data[0].lat}&lon=${coords.data[0].lon}&appid=${import.meta.env.VITE_API_KEY}&units=imperial`)
+            // const coords = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${search}&limit=5&appid=${import.meta.env.VITE_API_KEY}&units=imperial`);
+            // console.log(coords.data)
+            // setLocation(coords.data[0])
+            const response = await axios.get(`http://api.weatherapi.com/v1/forecast.json?key=${import.meta.env.VITE_WEATHER_API}&q=${search}&days=3&aqi=no&alerts=no`)
             console.log(response.data)
-            setLocation(response.data)
-            setMain(response.data.main)
-            console.log(search)
+            setCurrent(response.data.current)
+            setCondition(response.data.current.condition)
+            setForecast1(response.data.forecast.forecastday[0].day)
+            setForecast2(response.data.forecast.forecastday[1].day)
+            setForecast3(response.data.forecast.forecastday[2].day)
+            setLocation(response.data.location)
+            // setSearch('')
           } catch (error) {
             console.error(error);
           }
@@ -45,9 +52,18 @@ export default function Current() {
             value={search}
           />
         </form>
-        <p>{location.name}</p>
-        <p>{main.temp}</p>
-        {/* <FiveDayForecast key={search} search={search}/> */}
+        <div className='location-container'>
+          <h1>{location.name}</h1>
+          <p>{location.country}</p>
+        </div>
+        <FiveDayForecast
+          key={location} 
+          current={current}
+          condition={condition}
+          forecast1={forecast1}
+          forecast2={forecast2}
+          forecast3={forecast3}
+          location={location}/>
     </div>
   )
 }
