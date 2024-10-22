@@ -2,4 +2,9 @@
   margin: 0 auto;
 }
 
+.location-container {
+  display: flex;
+  place-items: baseline;
+  gap: 15px;
+}
 
