@@ -16,6 +16,7 @@ export default function Current() {
     const handleSubmit = async (e) => {
       e.preventDefault()
       fetchCityCoords()
+      
     }
 
     const fetchCityCoords = async () => {
@@ -50,7 +51,7 @@ export default function Current() {
         </form>
         <div className='location-container'>
           <h1>{location.name}</h1>
-          <p>{location.country}</p>
+          <p>{location.region}</p>
         </div>
         <FiveDayForecast
           key={location} 
