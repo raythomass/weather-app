@@ -1,19 +1,61 @@
 #root {
-  margin: 0 auto;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 10px;
+  font-family: Figtree;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.weather-container {
+  padding: 2%;
+  /* border: solid red 1px; */
+  background-color: rgb(183, 232, 255);
+  border-radius: 15px;
+  margin-top: 2% ;
+}
+
+.form-container {
+  display: flex;
 }
 
 .location-container {
   display: flex;
-  place-items: baseline;
+  align-items: baseline;
+  gap: 5%;
+}
+
+.location-name {
+  display: flex;
+  align-items: baseline;
   gap: 15px;
+}
+
+.location-temp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.location-temp h1 {
+  margin: 0;
+}
+
+.location-temp p {
+  margin: 0;
 }
 
 .three-day-forecast {
   display: flex;
-  gap: 10%;
+  gap: 5%;
 }
 
-.forecast-day-details{
-  display: flex;
-  gap: 15px;
+.text-style {
+  font-family: Raleway;
 }
+
+

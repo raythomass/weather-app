@@ -41,26 +41,40 @@ export default function Current() {
 
 
   return (
-    <div>
-        <form onSubmit={handleSubmit}>
-          <input
-            type='text'
-            onChange={(e) => setSearch(e.target.value)}
-            value={search}
-          />
-        </form>
-        <div className='location-container'>
-          <h1>{location.name}</h1>
-          <p>{location.region}</p>
+    <div className='page-container'>
+        <div className='form-container'>
+          <form className='search-form' onSubmit={handleSubmit}>
+            <input
+              type='text'
+              onChange={(e) => setSearch(e.target.value)}
+              value={search}
+            />
+          </form>
         </div>
-        <FiveDayForecast
-          key={location} 
-          current={current}
-          condition={condition}
-          forecast1={forecast1}
-          forecast2={forecast2}
-          forecast3={forecast3}
-          location={location}/>
+        <div className='weather-container'>
+
+          <div className='location-container'>
+            <div className='location-name'>
+              <h1>{location.name}</h1>
+              <p>{location.region}</p>
+            </div>
+            <div className='location-temp'>
+              <h1>{current.temp_f}</h1>
+              <p>{condition.text}</p>
+            </div>
+          </div>
+
+          <FiveDayForecast
+            className='five-day-forecast'
+            key={location} 
+            current={current}
+            condition={condition}
+            forecast1={forecast1}
+            forecast2={forecast2}
+            forecast3={forecast3}
+            location={location}
+          />
+        </div>
     </div>
   )
 }
