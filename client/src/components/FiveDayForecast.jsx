@@ -6,7 +6,7 @@ const FiveDayForecast = ({current, condition, forecast1, forecast2, forecast3, l
     return (
         <div className="three-day-forecast">
             <div className="forecast-day">
-                <p>Day 1 {forecast2.date}</p>
+                <p>Day 1</p>
                 <div className="forecast-day-details">
                     <p>{forecast1.mintemp_f}</p>
                     <p>{forecast1.maxtemp_f}</p>

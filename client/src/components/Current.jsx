@@ -74,6 +74,10 @@ export default function Current() {
             forecast3={forecast3}
             location={location}
           />
+        </form>
+        <div className='location-container'>
+          <h1>{location.name}</h1>
+          <p>{location.region}</p>
         </div>
     </div>
   )
