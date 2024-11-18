@@ -11,7 +11,7 @@ export default function Current() {
     const [forecast3, setForecast3] = useState('')
     const [current, setCurrent] = useState('')
     const [condition, setCondition] = useState('')
-    const [search, setSearch] = useState('')
+    const [search, setSearch] = useState('Los Angeles')
 
     const handleSubmit = async (e) => {
       e.preventDefault()
@@ -26,9 +26,10 @@ export default function Current() {
             setCurrent(response.data.current)
             setCondition(response.data.current.condition)
             setForecast1(response.data.forecast.forecastday[0].day)
-            setForecast2(response.data.forecast.forecastday[1].day)
-            setForecast3(response.data.forecast.forecastday[2].day)
+            // setForecast2(response.data.forecast.forecastday[1].day)
+            // setForecast3(response.data.forecast.forecastday[2].day)
             setLocation(response.data.location)
+            setSearch('')
             // setSearch('')
           } catch (error) {
             console.error(error);
@@ -52,19 +53,21 @@ export default function Current() {
           </form>
         </div>
         <div className='weather-container'>
-
           <div className='location-container'>
-            <div className='location-name'>
-              <h1>{location.name}</h1>
-              <p>{location.region}</p>
+              <h1 className='location-name'>{location.name},</h1>
+              <p className='location-region'>{location.region}</p>
+          </div>
+          <div className='location-temp'>
+            <div className='location-temp-div'>
+              <img src={condition.icon} alt="Weather data by WeatherAPI.com" border="0"/>
+              <h1>{current.temp_f}<span>°F</span></h1>
             </div>
-            <div className='location-temp'>
-              <h1>{current.temp_f}</h1>
-              <p>{condition.text}</p>
-            </div>
+            <p>{condition.text}</p>
+            <p>Humidity: {current.humidity}%</p>
+            <p>Wind: {current.wind_mph}mph</p>
           </div>
 
-          <FiveDayForecast
+          {/* <FiveDayForecast
             className='five-day-forecast'
             key={location} 
             current={current}
@@ -73,11 +76,7 @@ export default function Current() {
             forecast2={forecast2}
             forecast3={forecast3}
             location={location}
-          />
-        </form>
-        <div className='location-container'>
-          <h1>{location.name}</h1>
-          <p>{location.region}</p>
+          /> */}
         </div>
     </div>
   )
