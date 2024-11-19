@@ -48,7 +48,7 @@ background: linear-gradient(356deg, rgba(79,199,255,1) 0%, rgba(183,232,255,1) 1
   gap: 5px;
 }
 
-.location-temp-div {
+.temperature-div {
   display: flex;
   gap: 5px;
 }
@@ -72,4 +72,52 @@ background: linear-gradient(356deg, rgba(79,199,255,1) 0%, rgba(183,232,255,1) 1
 .three-day-forecast {
   display: flex;
   gap: 5%;
+}
+
+.current-details {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap:wrap;
+  align-items: center;
+}
+
+.current-details h1 {
+  margin-top: 0.5%;
+  margin-bottom: 0.5%;
+}
+
+.current-details h4 {
+  margin-top: 0.5%;
+  margin-bottom: 0.5%;
+}
+
+.current-details p {
+  margin: 0.5%;
+}
+
+.current-temperature {
+  display: flex;
+  align-items: center;
+}
+
+.current-temperature h1 {
+  font-size: 3rem;
+}
+
+.current-temperature img {
+  height: 100px;
+}
+
+.forecast-section {
+  margin-top: 5%;
+}
+
+.forecast-section h4 {
+  margin: 0;
+}
+
+.forecast-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
