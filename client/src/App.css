@@ -15,9 +15,8 @@
   padding-bottom: 3%;
   padding-left: 10%;
   padding-right: 10%;
-  /* background-color: rgb(183, 232, 255); */
   background: rgb(79,199,255);
-background: linear-gradient(356deg, rgba(79,199,255,1) 0%, rgba(183,232,255,1) 100%);
+  background: linear-gradient(356deg, rgba(79,199,255,1) 0%, rgba(183,232,255,1) 100%);
   border-radius: 15px;
   margin-top: 2% ;
 }
@@ -74,24 +73,24 @@ background: linear-gradient(356deg, rgba(79,199,255,1) 0%, rgba(183,232,255,1) 1
   gap: 5%;
 }
 
-.current-details {
+.current-header {
   display: flex;
   justify-content: space-between;
   flex-wrap:wrap;
   align-items: center;
 }
 
-.current-details h1 {
+.current-header h1 {
   margin-top: 0.5%;
   margin-bottom: 0.5%;
 }
 
-.current-details h4 {
+.current-header h4 {
   margin-top: 0.5%;
   margin-bottom: 0.5%;
 }
 
-.current-details p {
+.current-header p {
   margin: 0.5%;
 }
 
@@ -106,6 +105,12 @@ background: linear-gradient(356deg, rgba(79,199,255,1) 0%, rgba(183,232,255,1) 1
 
 .current-temperature img {
   height: 100px;
+}
+
+.current-details {
+  display: flex;
+  margin-top: 3%;
+  gap: 15%;
 }
 
 .forecast-section {
@@ -125,4 +130,28 @@ background: linear-gradient(356deg, rgba(79,199,255,1) 0%, rgba(183,232,255,1) 1
 .forecast-condition {
   display: flex;
   align-items: center;
+}
+
+.three-day {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3%;
+}
+
+.day {
+  /* background: rgb(79,199,255);
+  background: linear-gradient(356deg, rgba(79,199,255,1) 0%, rgba(183,232,255,1) 100%); */
+  border: 1px solid rgb(195, 195, 195);
+  width: 31%;
+  border-radius: 15px;
+}
+
+.day-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.name {
+  font-size: 18px;
 }
