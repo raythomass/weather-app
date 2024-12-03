@@ -40,7 +40,7 @@ export default function Current() {
 
     const fetchCityCoords = async () => {
         try {
-            const response = await axios.get(`http://api.weatherapi.com/v1/forecast.json?key=${import.meta.env.VITE_WEATHER_API}&q=${search}&days=3&aqi=no&alerts=no`)
+            const response = await axios.get(`https://api.weatherapi.com/v1/forecast.json?key=${import.meta.env.VITE_WEATHER_API}&q=${search}&days=3&aqi=no&alerts=no`)
             console.log(response.data)
             setCurrent(response.data.current)
             setCurrentCondition(response.data.current.condition)
